@@ -110,29 +110,77 @@
             </div>
         </section>
 
-        <section id="evidence" class="glass-card p-8 rounded-2xl">
+       <section id="evidence" class="glass-card p-8 rounded-2xl">
             <h2 class="text-xl font-bold mb-6 text-sky-400">d) Evidence of Learning</h2>
             <div class="grid md:grid-cols-2 gap-6 text-sm">
+                
                 <div class="border border-slate-800 rounded-xl p-4 flex flex-col h-full">
                     <h4 class="font-bold text-white">Project: SafeRide (FYP)</h4>
-                    <div class="w-full h-48 bg-slate-800 rounded-lg my-4 overflow-hidden border border-slate-700">
-                        <img src="assets/b.jpg" alt="SafeRide Dashboard" class="w-full h-full object-cover">
+                    
+                    <div class="relative w-full h-48 my-4 group overflow-hidden rounded-lg border border-slate-700 bg-slate-800">
+                        <div id="slider1" class="flex transition-transform duration-500 ease-in-out h-full">
+                            <img src="assets/b.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SafeRide 1">
+                            <img src="assets/b2.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SafeRide 2">
+                            <img src="assets/b3.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SafeRide 3">
+                        </div>
+                        
+                        <button onclick="moveSlide('slider1', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+                            <i class="fas fa-chevron-left text-white text-xs"></i>
+                        </button>
+                        <button onclick="moveSlide('slider1', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+                            <i class="fas fa-chevron-right text-white text-xs"></i>
+                        </button>
                     </div>
-                    <p class="text-slate-400 mb-2 italic text-xs">Evidence: Screenshots / Dashboard Link</p>
-                    <p class="text-slate-300 flex-grow">Development of a real-time student tracking system using the A7670G module and Laravel 12.</p>
+
+                    <p class="text-slate-400 mb-2 italic text-xs text-center">Use arrows to view more screenshots</p>
+                    <p class="text-slate-300 flex-grow mt-2">Development of a real-time student tracking system using the A7670G module and Laravel 12.</p>
                     <a href="https://077487.unisza.work/fyp/public/" target="_blank" class="mt-4 block w-full text-center py-2 rounded-lg text-xs font-bold text-white btn-primary uppercase tracking-widest">View Project</a>
                 </div>
+
                 <div class="border border-slate-800 rounded-xl p-4 flex flex-col h-full">
                     <h4 class="font-bold text-white">Project: SISPA Digital Directory</h4>
-                    <div class="w-full h-48 bg-slate-800 rounded-lg my-4 overflow-hidden border border-slate-700">
-                        <img src="assets/c.jpg" alt="SISPA Portal" class="w-full h-full object-cover">
+                    
+                    <div class="relative w-full h-48 my-4 group overflow-hidden rounded-lg border border-slate-700 bg-slate-800">
+                        <div id="slider2" class="flex transition-transform duration-500 ease-in-out h-full">
+                            <img src="assets/c.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 1">
+                            <img src="assets/c2.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 2">
+                            <img src="assets/c3.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 3">
+                            <img src="assets/c4.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 4">
+                            <img src="assets/c5.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 5">
+                            <img src="assets/c6.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 6">
+                            <img src="assets/c7.jpg" class="w-full h-full object-cover flex-shrink-0" alt="SISPA 7">
+                            
+                        </div>
+                        
+                        <button onclick="moveSlide('slider2', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+                            <i class="fas fa-chevron-left text-white text-xs"></i>
+                        </button>
+                        <button onclick="moveSlide('slider2', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+                            <i class="fas fa-chevron-right text-white text-xs"></i>
+                        </button>
                     </div>
-                    <p class="text-slate-400 mb-2 italic text-xs">Evidence: GitHub Link / Interface Screenshots</p>
-                    <p class="text-slate-300 flex-grow">Centralized information platform using CI4 for the digitalization of organizational records.</p>
+
+                    <p class="text-slate-400 mb-2 italic text-xs text-center">Use arrows to view more screenshots</p>
+                    <p class="text-slate-300 flex-grow mt-2">Centralized information platform using CI4 for the digitalization of organizational records.</p>
                     <a href="https://077487.unisza.work/sispa/public/" target="_blank" class="mt-4 block w-full text-center py-2 rounded-lg text-xs font-bold text-white btn-primary uppercase tracking-widest">View Project</a>
                 </div>
+
             </div>
         </section>
+
+        <script>
+            const slideIndexes = { slider1: 0, slider2: 0 };
+
+            function moveSlide(id, direction) {
+                const slider = document.getElementById(id);
+                const slides = slider.children;
+                const totalSlides = slides.length;
+                
+                slideIndexes[id] = (slideIndexes[id] + direction + totalSlides) % totalSlides;
+                const offset = -slideIndexes[id] * 100;
+                slider.style.transform = `translateX(${offset}%)`;
+            }
+        </script>
 
         <section id="reflection" class="glass-card p-8 rounded-2xl border border-sky-900/30">
             <h2 class="text-xl font-bold mb-6 text-sky-400 uppercase tracking-widest">e) Personal Reflection</h2>
